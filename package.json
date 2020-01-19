@@ -1,0 +1,31 @@
+{
+  "name": "mocha-pptr",
+  "version": "1.0.0",
+  "description": "Mocha Puppeteer Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --timeout=30000 ./build/tests/**.js",
+    "clean": "rm -rf build",
+    "build": "babel --preset es2015 -d build/ src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorFerro/MOCHA-PPTR.git"
+  },
+  "author": "Igor Ferro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorFerro/MOCHA-PPTR/issues"
+  },
+  "homepage": "https://github.com/IgorFerro/MOCHA-PPTR#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0",
+    "mocha-steps": "^1.3.0",
+    "puppeteer": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
