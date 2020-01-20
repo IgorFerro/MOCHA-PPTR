@@ -41,4 +41,15 @@ export default class Builder {
     constructor(page){
         this.page=page;
     }
+    
+    async waitAndClick(selector){
+        await this.page.waitAndClick(selector);
+        await this.page.click(selector);
+    }
+   
+    async waitAndType(selector, text){
+        await this.page.waitForSelector(selector);
+        await this.page.type(selector,text);
+
+    }
 }
