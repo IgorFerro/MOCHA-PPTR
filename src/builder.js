@@ -50,6 +50,25 @@ export default class Builder {
     async waitAndType(selector, text){
         await this.page.waitForSelector(selector);
         await this.page.type(selector,text);
+    }
+    async getText(selector,text){
+      await this.page.waitForSelector(selector);
+      const text = await this.page.$eval(selector, e => e.innerHTML);
+      return text;
+    }
 
+    async getCount(selector){
+      await this.page.waitForSelector(selector);
+      const count = await this.page.$$eval(selector, items => items.length);
+      return count;
+    }
+
+    async waitForXPathAndClick(xpath){
+      await this.page.waitForXpath(xpath);
+      const elements = await this.page.$x(xpath);
+      if(elements.length > 1){
+        console.warn("waitForXPathClick returned more than one result")
+      }
+      await elements[0].click();
     }
 }
