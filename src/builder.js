@@ -3,7 +3,7 @@ import puppeteer from "puppeteer";
 export default class Builder {
   static async build(viewport) {
     const launchOptions = {
-      headless: true,
+      headless: false,
       slowMo: 0,
       args: [
         "--no-sandbox",
@@ -43,7 +43,7 @@ export default class Builder {
     }
     
     async waitAndClick(selector){
-        await this.page.waitAndClick(selector);
+        await this.page.waitForSelector(selector);
         await this.page.click(selector);
     }
    
@@ -51,7 +51,7 @@ export default class Builder {
         await this.page.waitForSelector(selector);
         await this.page.type(selector,text);
     }
-    async getText(selector,text){
+    async getText(selector){
       await this.page.waitForSelector(selector);
       const text = await this.page.$eval(selector, e => e.innerHTML);
       return text;
