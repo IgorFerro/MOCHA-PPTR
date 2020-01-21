@@ -1,5 +1,5 @@
 # MOCHA-PPTR
-Mocha with Puppeteer
+Mocha with Puppeteer, Builder Class and Page Objects
 
 # Install Dependencies
 1. npm i mocha puppeteer chai
